@@ -6,7 +6,7 @@ import { default as checkerPlugin } from 'vite-plugin-checker';
 import tsconfigPathsPlugin from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     viteReactPlugin(),
     checkerPlugin({
@@ -24,6 +24,14 @@ export default defineConfig({
     ),
   ],
   css: {
+    modules: {
+      generateScopedName:
+        mode === 'development'
+          ? '[name]__[local]__[hash:base64:5]'
+          : '[hash:base64:6]',
+      hashPrefix: 'prefix',
+      localsConvention: 'camelCaseOnly',
+    },
     postcss: {
       plugins: [
         autoprefixer({
@@ -38,4 +46,4 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './tests/setup.ts',
   },
-});
+}));
