@@ -3,6 +3,7 @@ import viteReactPlugin from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
 import vitePluginBanner from 'vite-plugin-banner';
 import { default as vitePluginChecker } from 'vite-plugin-checker';
+import vitePluginStylelint from 'vite-plugin-stylelint';
 import vitePluginSvgr from 'vite-plugin-svgr';
 import vitePluginTsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
@@ -23,6 +24,7 @@ export default defineConfig(({ mode }) => ({
     vitePluginBanner(
       'Made by Sadov Aleksandr Denisovich Studio.\n* Our site: https://sadovaleksandrdenisovich.ru/',
     ),
+    vitePluginStylelint({ fix: true }),
     vitePluginSvgr(),
   ],
   css: {

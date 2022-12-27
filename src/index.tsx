@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from 'app';
 import 'i18n';
 
-import './index.scss';
+import './index.css';
 
 /**
  * @description Контейнер приложения.
