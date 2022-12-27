@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
     }),
     vitePluginTsconfigPaths(),
     viteLegacyPlugin({
-      targets: ['defaults', 'not dead', 'last 100 versions'],
+      targets: ['defaults', '>0.2%', 'not dead', 'not op_mini all'],
     }),
     vitePluginBanner(
       'Made by Sadov Aleksandr Denisovich Studio.\n* Our site: https://sadovaleksandrdenisovich.ru/',
@@ -40,7 +40,12 @@ export default defineConfig(({ mode }) => ({
       plugins: [
         autoprefixer({
           flexbox: true,
-          overrideBrowserslist: ['>0.2%', 'not dead', 'not op_mini all'],
+          overrideBrowserslist: [
+            'defaults',
+            '>0.2%',
+            'not dead',
+            'not op_mini all',
+          ],
         }),
       ],
     },
@@ -49,5 +54,8 @@ export default defineConfig(({ mode }) => ({
     globals: true,
     environment: 'jsdom',
     setupFiles: './tests/setup.ts',
+  },
+  server: {
+    port: 3000,
   },
 }));

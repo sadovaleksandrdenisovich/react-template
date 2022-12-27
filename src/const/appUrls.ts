@@ -13,7 +13,7 @@ export const APP_URLS = {
   home: SYMBOLS.slash,
 
   /**
-   * @description Cтраница не найдена.
+   * @description Страница не найдена.
    * */
   get notFound() {
     return urlJoin(this.home, PATHS.notFound);
