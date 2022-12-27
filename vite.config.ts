@@ -2,21 +2,21 @@ import viteLegacyPlugin from '@vitejs/plugin-legacy';
 import viteReactPlugin from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
 import vitePluginBanner from 'vite-plugin-banner';
-import { default as checkerPlugin } from 'vite-plugin-checker';
+import { default as vitePluginChecker } from 'vite-plugin-checker';
 import vitePluginSvgr from 'vite-plugin-svgr';
-import tsconfigPathsPlugin from 'vite-tsconfig-paths';
+import vitePluginTsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig(({ mode }) => ({
   plugins: [
     viteReactPlugin(),
-    checkerPlugin({
+    vitePluginChecker({
       typescript: true,
       eslint: {
         lintCommand: 'eslint ./src --ext .tsx,.ts --fix',
       },
     }),
-    tsconfigPathsPlugin(),
+    vitePluginTsconfigPaths(),
     viteLegacyPlugin({
       targets: ['defaults', 'not dead', 'last 100 versions'],
     }),
