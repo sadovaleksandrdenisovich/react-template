@@ -8,6 +8,9 @@ import vitePluginSvgr from 'vite-plugin-svgr';
 import vitePluginTsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
+// @ts-ignore
+import { name } from './package.json';
+
 export default defineConfig(({ mode }) => ({
   plugins: [
     viteReactPlugin(),
@@ -32,7 +35,7 @@ export default defineConfig(({ mode }) => ({
       generateScopedName:
         mode === 'development'
           ? '[name]__[local]__[hash:base64:5]'
-          : '[hash:base64:6]',
+          : `${name}-[hash:base64:6]`,
       hashPrefix: 'prefix',
       localsConvention: 'camelCaseOnly',
     },
