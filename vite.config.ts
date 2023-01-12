@@ -1,7 +1,6 @@
 import viteLegacyPlugin from '@vitejs/plugin-legacy';
 import viteReactPlugin from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
-import vitePluginBanner from 'vite-plugin-banner';
 import { default as vitePluginChecker } from 'vite-plugin-checker';
 import vitePluginStylelint from 'vite-plugin-stylelint';
 import vitePluginSvgr from 'vite-plugin-svgr';
@@ -24,9 +23,6 @@ export default defineConfig(({ mode }) => ({
     viteLegacyPlugin({
       targets: ['defaults', '>0.2%', 'not dead', 'not op_mini all'],
     }),
-    vitePluginBanner(
-      'Made by Sadov Aleksandr Denisovich Studio.\n* Our site: https://sadovaleksandrdenisovich.ru/',
-    ),
     vitePluginStylelint({ fix: true }),
     vitePluginSvgr(),
   ],
