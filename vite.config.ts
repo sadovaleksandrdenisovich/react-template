@@ -1,6 +1,7 @@
 import viteLegacyPlugin from '@vitejs/plugin-legacy';
 import viteReactPlugin from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
+import vitePluginBanner from 'vite-plugin-banner';
 import { default as vitePluginChecker } from 'vite-plugin-checker';
 import vitePluginStylelint from 'vite-plugin-stylelint';
 import vitePluginSvgr from 'vite-plugin-svgr';
@@ -8,7 +9,7 @@ import vitePluginTsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
 // @ts-ignore
-import { name } from './package.json';
+import { name, author } from './package.json';
 
 export default defineConfig(({ mode }) => ({
   plugins: [
@@ -25,6 +26,15 @@ export default defineConfig(({ mode }) => ({
     }),
     vitePluginStylelint({ fix: true }),
     vitePluginSvgr(),
+    vitePluginBanner(
+      [
+        '',
+        ['Created by', author.name].join(' '),
+        ['Our url of site', author.url].join(': '),
+        ['Our email address', author.email].join(': '),
+        '',
+      ].join('\n'),
+    ),
   ],
   css: {
     modules: {
