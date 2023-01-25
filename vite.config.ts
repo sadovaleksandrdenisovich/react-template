@@ -1,6 +1,7 @@
 import viteLegacyPlugin from '@vitejs/plugin-legacy';
 import viteReactPlugin from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
+import { splitVendorChunkPlugin } from 'vite';
 import vitePluginBanner from 'vite-plugin-banner';
 import { default as vitePluginChecker } from 'vite-plugin-checker';
 import vitePluginStylelint from 'vite-plugin-stylelint';
@@ -14,6 +15,7 @@ import { name, author } from './package.json';
 export default defineConfig(({ mode }) => ({
   plugins: [
     viteReactPlugin(),
+    splitVendorChunkPlugin(),
     vitePluginChecker({
       typescript: true,
       eslint: {
